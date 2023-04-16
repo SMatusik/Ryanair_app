@@ -1,0 +1,8 @@
+messente:
+  public_key: some_key
+  private_key: some_key
+  sender: some_sender_name
+  to: some_number
+
+airports_data:
+  code: IATA

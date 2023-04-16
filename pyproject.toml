@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "ryanair-app"
+version = "0.1.0"
+description = "application for checking ryanair prices"
+authors = ["SMatusik <sebastianmatusik95@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ryanair_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.1"
+messente-api = "^1.5.0"
+pytest = "^7.3.1"
+psycopg = "^3.1.8"
+black = "^23.3.0"
+pydantic-factories = "^1.17.3"
+uvicorn = "^0.21.1"
+pyaml = "^21.10.1"
+ryanair-py = "^2.1.0"
+airportsdata = "^20230408"
+sqlalchemy = "^2.0.9"
+passlib = "^1.7.4"
+psycopg2 = "^2.9.6"
+pydantic = {extras = ["email"], version = "^1.10.7"}
+alembic = "^1.10.3"
+python-multipart = "^0.0.6"
+pyjwt = "^2.6.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.2.0"
+flake8 = "^6.0.0"
+Faker = "^18.4.0"
+aioredis = "^2.0.1"
+celery = "^5.2.7"
+celery-redbeat = "^2.0.0"
+gunicorn = "^20.1.0"
+uvicorn = "^0.21.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8001:8000
+    environment:
+      CFG_PATH: config.yml
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:14.1
+    environment:
+      - POSTGRES_USER=ryanair_app
+      - POSTGRES_PASSWORD=ryanair_app
+      - POSTGRES_DB=ryanair_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ryanair_app -d ryanair_db"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
